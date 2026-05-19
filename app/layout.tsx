@@ -1,9 +1,11 @@
 import type { Metadata } from "next";
+import { ThemeProvider } from "@/lib/theme-provider";
+import { ThemeToggle } from "@/components/theme-toggle";
 import "./globals.css";
 
 export const metadata: Metadata = {
-  title: "Hello World App",
-  description: "A simple app displaying Hello World",
+  title: "Theme Switcher App",
+  description: "A minimalist app with persistent light and dark theme support",
 };
 
 export default function RootLayout({
@@ -12,8 +14,13 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body>{children}</body>
+    <html lang="en" suppressHydrationWarning>
+      <body className="bg-(--color-background) text-(--color-text) transition-colors duration-300">
+        <ThemeProvider>
+          <ThemeToggle />
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   );
 }
