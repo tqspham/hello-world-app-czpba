@@ -8,6 +8,15 @@ export const metadata: Metadata = {
   description: "A minimalist app with persistent light and dark theme support",
 };
 
+function LayoutContent({ children }: { children: React.ReactNode }) {
+  return (
+    <>
+      <ThemeToggle />
+      {children}
+    </>
+  );
+}
+
 export default function RootLayout({
   children,
 }: {
@@ -17,8 +26,7 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body className="bg-(--color-background) text-(--color-text) transition-colors duration-300">
         <ThemeProvider>
-          <ThemeToggle />
-          {children}
+          <LayoutContent>{children}</LayoutContent>
         </ThemeProvider>
       </body>
     </html>
