@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Providers } from "@/components/providers";
+import { ThemeProvider } from "@/lib/theme-provider";
 import "./globals.css";
 
 export const metadata: Metadata = {
@@ -15,9 +15,9 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body className="bg-(--color-background) text-(--color-text) transition-colors duration-300">
-        <Providers>
+        <ThemeProvider>
           {children}
-        </Providers>
+        </ThemeProvider>
       </body>
     </html>
   );
