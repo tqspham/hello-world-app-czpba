@@ -1,5 +1,3 @@
-'use client';
-
 import type { Metadata } from "next";
 import { ThemeProvider } from "@/lib/theme-provider";
 import { LayoutClient } from "@/components/layout-client";
